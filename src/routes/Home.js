@@ -15,18 +15,18 @@ const Home = ({userObj}) => {
         })
     }, []);
     return(
-        <div>
-            <HjweetFactory userObj={userObj}/>
-        <div>
-            {hjWeets.map((hjweet) => (
-              <Hjweet 
-                 key={hjweet.id} 
-                 hjweetObj={hjweet} 
-                 isOwner={hjweet.creatorId === userObj.uid} 
-              />
-            ))}
+        <div className="container">
+                <HjweetFactory userObj={userObj}/>
+            <div style={{ marginTop: 30 }}>
+                {hjWeets.map((hjweet) => (
+                  <Hjweet 
+                     key={hjweet.id} 
+                     hjweetObj={hjweet} 
+                     isOwner={hjweet.creatorId === userObj.uid} 
+                  />
+                ))}
+            </div>
         </div>
-    </div>
     );
 };
 
