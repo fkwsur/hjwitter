@@ -8,9 +8,9 @@ const HjweetFactory = ({ userObj }) => {
     const [hjweet, setHjweet] = useState("");
     const [attachment, setAttachment] = useState("")
     const onSubmit = async (event) => {
-        // if (hjWeet === "") {
-        //     return;
-        // }
+        if (hjweet === "") {
+            return;
+        }
         event.preventDefault();
         let attachmentUrl = "";
         if (attachment != "") {
