@@ -18,7 +18,7 @@ const Hjweet = ({hjweetObj, isOwner}) => {
       event.preventDefault();
       console.log(hjweetObj, newWeet);
       await dbService.doc(`hjWeets/${hjweetObj.id}`).update({
-        text: newWeet,
+      text: newWeet,
       });
       setEditing(false);
   };
@@ -52,7 +52,10 @@ const Hjweet = ({hjweetObj, isOwner}) => {
         ) : (
         <>
          <h4>{hjweetObj.text}</h4>
-          {isOwner && (
+         {hjweetObj.attachmentUrl && (
+            <img src={hjweetObj.attachmentUrl} width="50px" height="50px"  />
+         )}
+         {isOwner && (
           <>
            <button onClick={onDeleteClick}>Delete HJweet</button>
            <button onClick={toggleEditing}>Edit HJweet</button>
